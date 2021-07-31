@@ -51,3 +51,50 @@ public:
     }
 };
 */
+
+/* Another Approach
+class Solution{
+public:
+    int *findTwoElement(int *arr, int n) {
+        // code here
+        int xor1=0;
+        int *ans = new int[2];
+        for(int i=0;i<n;i++){
+            xor1=xor1^arr[i];
+        }
+        for(int i=1;i<=n;i++){
+            xor1=xor1^i;
+        }
+        int rightSetBit=(xor1)&(~(xor1-1));
+        int a=0,b=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]&rightSetBit){
+                a=a^arr[i];
+            }
+            else{
+                b=b^arr[i];
+            }
+        }
+        for(int i=1;i<=n;i++){
+            if(i&rightSetBit){
+                a=a^i;
+            }
+            else{
+                b=b^i;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if(arr[i]==a){
+               ans[0]=a;
+               ans[1]=b;
+               return ans;
+            }
+        }
+        ans[0]=b;
+        ans[1]=a;
+        return ans;
+        
+    }
+};
+*/
+
