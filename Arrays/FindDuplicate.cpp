@@ -31,3 +31,21 @@ public:
     }
 };
 */
+/*Cycle Detection Approach
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slow=nums[0],fast=nums[0];
+        do{
+            fast=nums[nums[fast]];
+            slow=nums[slow];
+        }while(slow!=fast);
+        fast=nums[0];
+        while(fast!=slow){
+            slow=nums[slow];
+            fast=nums[fast];
+        }
+        return fast;
+    }
+};
+*/
