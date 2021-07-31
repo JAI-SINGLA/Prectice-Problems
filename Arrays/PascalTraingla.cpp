@@ -14,3 +14,7 @@ public:
         return ans;
     }
 };
+
+/*
+Formula fro a given row and column (Row-1) C (Colunm-1)
+*/
