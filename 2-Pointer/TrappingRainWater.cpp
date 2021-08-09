@@ -21,3 +21,36 @@ public:
         
     }
 };
+
+//O(n) & O(1) Solution
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        
+        int r=height.size()-2;
+        int l=1;
+        int ans=0;
+        int n=height.size();
+        int leftMax=height[0];
+        int rightMax=height[n-1];
+        while(l<=r){
+            if(leftMax<rightMax){
+                int smallans=leftMax-height[l];
+                if(smallans>0){
+                    ans+=smallans;
+                }
+                leftMax=max(leftMax,height[l]);
+                l++;
+            }
+            else{
+                int smallans=rightMax-height[r];
+                if(smallans>0){
+                    ans+=smallans;
+                }
+                rightMax=max(rightMax,height[r]);
+                    r--;
+            }
+        }
+            return ans;
+    }
+};
