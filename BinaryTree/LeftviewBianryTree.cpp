@@ -16,3 +16,24 @@ vector<int> leftView(Node *root)
    }
    return ans;
 }
+
+
+// Recursive Solution
+void leftView(Node*root, int level, int&maxLevel, vector<int>&ans){
+    if(root==NULL)return;
+    if(maxLevel<level){
+        ans.push_back(root->data);
+        maxLevel=level;
+    }
+    leftView(root->left,level+1,maxLevel,ans);
+    leftView(root->right,level+1,maxLevel,ans);
+}
+//Function to return a list containing elements of left view of the binary tree.
+vector<int> leftView(Node *root)
+{
+   // Your code here
+   vector<int>ans;
+   int maxLevel=0;
+   leftView(root,1,maxLevel,ans);
+   return ans;
+}
